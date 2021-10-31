@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>hostel</title>
+  <script src="hostel.js"></script>
+</head>
+<script>
+  var hostlers = ["ram", "lakshman", "arjun", "kumar", "geetha", "latha", "roja"]
+  var totalbeds = 10;
+  var l = hostlers.length;
+  var remainingbeds = totalbeds - l;
+  var t = 1;
+  while (t) {
+
+    console.log("1. join 2.leave 3.beds available 4.display hostlers 5.exit")
+    var choice = prompt("enter the choice");
+    switch (choice) {
+      case "1":
+        if (l < totalbeds) {
+          var personj = prompt("enter name of the person who wants to join")
+          for (let i = 0; i < l; i++) {
+            if (hostlers[i] == personj) {
+              window.alert("candidate already existed!");
+            }
+            else {
+              add(personj);
+              break;
+            }
+          }
+        }
+        else {
+          window.alert("no beds available!")
+        }
+
+        break;
+      case "2":
+        var personl = prompt("enter name of the person who wants to leave")
+        var j = 0;
+        for (let i = 0; i <= l; i++) {
+          if (hostlers[i] == personl) {
+            j = j + 1;
+          }
+        }
+        if (j == 0) {
+          window.alert("no candidate with the name!");
+        }
+        else {
+          window.alert(personl + " is removed");
+          sub(personl)
+        }
+        break;
+      case "3":
+        console.log("no of beds avialable " + remainingbeds);
+        break;
+      case "4":
+        console.log("..hostlers..")
+        list(hostlers);
+        break;
+      case "5":
+        t = 0;
+        break;
+
+      default:
+        window.alert("enter correct choice");
+        t = 0;
+        break;
+    }
+  }
+</script>
+</body>
+
+</html>
